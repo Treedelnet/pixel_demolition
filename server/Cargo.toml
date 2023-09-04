@@ -1,0 +1,15 @@
+[package]
+name = "pixel_demolition_server"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+pixel_demolition_common = { path = "../common" }
+warp = "0.3.5"
+tokio = { version= "1.29.1", features = ["full"] }
+tokio-stream = "0.1.14"
+futures = { version = "0.3.28", default-features = false }
+uuid = { version = "1.4.1", features = ["v4"] }
+rand = "0.8.5"
+image = "0.24.6"
+const-random = "0.1.15"

@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>Pixel Demolition</title>
+	</head>
+	<body style="margin: 0; overflow: hidden">
+		<img id="map", src="map.png" style="display: none">
+		<img id="background", src="background.png" style="display: none">
+		<img id="bot_base", src="bot_base.png" style="display: none">
+		<img id="dead_bot", src="dead_bot.png" style="display: none">
+		<img id="minigun", src="minigun.png" style="display: none">
+		<img id="glauncher", src="glauncher.png" style="display: none">
+		<img id="grenade", src="grenade.png" style="display: none">
+		<img id="grenade_icon", src="grenade_icon.png" style="display: none">
+		<img id="bullet", src="bullet.png" style="display: none">
+		<img id="bullet_icon", src="bullet_icon.png" style="display: none">
+		<img id="reticle", src="reticle.png" style="display: none">
+		<img id="health", src="health.png" style="display: none">
+		<canvas
+			id="canvas"
+			style="
+				width: 100vw;
+				height: 100vh;
+				image-rendering: pixelated;
+				font-smooth: never;
+			"
+		></canvas>
+
+		<canvas id="map_canvas" style="display:none"></canvas>
+		<canvas id="bot_red" style="display:none"></canvas>
+		<canvas id="bot_blue" style="display:none"></canvas>
+		<canvas id="bot_green" style="display:none"></canvas>
+		<canvas id="bot_purple" style="display:none"></canvas>
+		<script type="module">
+			import init, { Engine } from "./pixel_demolition_client.js";
+			window.addEventListener('load', function() {
+				init().then(() => {
+					const engine = Engine.new();
+					function render() {
+						engine.run().then(() => {
+							window.requestAnimationFrame(render);
+						});
+					}
+					render();
+				});
+			});
+		</script>
+	</body>
+</html>
